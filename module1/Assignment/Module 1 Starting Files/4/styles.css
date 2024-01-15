@@ -1,0 +1,50 @@
+/********f************
+
+    Competency 4
+    Name: Luping Xing
+    Date: Jan 11, 2024
+    Description: Competency4 in Assignment 1
+
+*********************/
+
+body {
+	background-image: url("img/background.png");
+	background-repeat: no-repeat;
+	background-size: 1920px;
+	/* the source of the background image is: https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.rawpixel.com%2Fimage_800%2FczNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjU0NmJhdGNoMy1teW50LTM0LWJhZGdld2F0ZXJjb2xvcl8xLmpwZw.jpg&tbnid=a_7jDA14-I98BM&vet=12ahUKEwiL_vH46NaDAxWHz8kDHfoQC28QMygTegUIARCdAQ..i&imgrefurl=https%3A%2F%2Fwww.rawpixel.com%2Fsearch%2Fbackground&docid=4J1ldUOSjxhIYM&w=800&h=533&itg=1&q=background%20picture&ved=2ahUKEwiL_vH46NaDAxWHz8kDHfoQC28QMygTegUIARCdAQ */
+	font-family: Lemon;
+	/* link to google fonts: https://fonts.google.com/specimen/Lemon */
+}
+
+table {
+	border: 2px solid black;
+	background-color: #ad9d6d;
+	color: #ddd;
+	width: 80%;
+	margin: 25px auto;
+	padding: 10px;
+	border: 4px solid black;
+	border-radius: 15px;
+	box-shadow: 5px 5px 5px #aaa;
+}
+
+table tbody tr:nth-child(2n) {
+	background-color: green;
+}
+
+table tbody > tr:hover {
+	background-color: darkblue;
+	color: lightyellow;
+}
+
+table caption {
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
+	color: #777;
+}
+
+thead {
+	font-weight: bold;
+	background-color: #959595;
+}

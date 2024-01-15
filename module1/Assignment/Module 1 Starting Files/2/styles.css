@@ -1,0 +1,37 @@
+/********f************
+
+	Do not alter this comment block.
+	Only fill out the information below.
+
+    Competency 2
+    Name: Luping Xing
+    Date: Jan 12, 2024
+    Description: Competency2 in Assignment 1
+
+*********************/
+
+body {
+    background-color: skyblue;
+}
+
+article {
+    width: 400px;
+    margin: 0 auto;
+    border: 3px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #777777;
+}
+
+article ul {
+    width: 200px;
+}
+
+article ul li {
+    border: 1px dashed lightgrey;
+    padding: 10px 20px 15px 5px;
+    /*
+        In the box model, padding is the area between border and content,
+        padding: 10px 20px 15px 5px
+        it means there is a top margin 10px, right margin 20px, bottom margin 15px, left margin 5px
+    */
+}

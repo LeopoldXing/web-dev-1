@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#static, #relative, #absolute, #fixed {
+    width: 200px;
+    height: 200px;
+    background-color: #ABC;
+    color: #FFF;
+}
