@@ -1,0 +1,36 @@
+/********f************
+
+    Competency 7
+    Name: Luping Xing
+    Date: 26 Jan, 2024
+    Description: Competency 7 of Module 2 - Navigation
+
+*********************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    list-style: none;
+    width: 100%;
+}
+
+main ul li {
+    height: 60px;
+    line-height: 60px;
+    width: 200px;
+    flex: 1 1 auto;
+    text-align: center;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fefcea+0,f1da36+100;Gold+3D */
+    background: linear-gradient(to bottom,  #fefcea 0%,#f1da36 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+main ul li:hover a{
+    color: black;
+    font-weight: bold;
+}

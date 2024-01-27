@@ -1,0 +1,62 @@
+/********f************
+
+    Competency 8
+    Name: Luping Xing
+    Date: 26 Jan, 2024
+    Description: Competency 8 of Module 2 - Apply media query to navigation
+
+*********************/
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+nav {
+	background-color: orange;
+	margin: 25px auto 0px;
+	width: 80%;
+	line-height: 70px;
+	font-size: 0.9em;
+	text-shadow: #000 1px 1px 3px;
+	box-shadow: 5px 5px 10px #000;
+	border-radius: 5px;
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	width: 100%;
+	flex-wrap: wrap;
+}
+
+nav ul li {
+	padding: 0px 7px;
+	text-align: center;
+}
+
+@media (max-width: 680px) {
+	nav ul {
+		flex-direction: column;
+	}
+	nav ul li {
+		width: 100%;
+	}
+	nav ul li:hover {
+		width: 100%;
+	}
+}
+
+nav ul li:hover {
+	background-color: #9543DC;
+}
+
+nav ul li a {
+	text-transform: uppercase;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}

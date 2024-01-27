@@ -1,0 +1,34 @@
+/*********f***********
+
+    Competency 6
+    Name: Luping Xing
+    Date: 26 Jan, 2024
+    Description: Competency 6 of Module 2 - Flexbox
+
+*********************/
+
+main {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-around;
+}
+
+.box {
+    border: 1px darkgray solid;
+    padding: 10px;
+    margin: 0 5px;
+    width: 300px;
+}
+
+.box-1 {
+    order: 2;
+}
+
+.box-2 {
+    order: 3;
+}
+
+.box-3 {
+    order: 1;
+}
