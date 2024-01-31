@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Payment Form</title>
+  <link rel="stylesheet" type="text/css" href="formstyles.css"/>
+</head>
+<body>
+<form id="payment" method="POST" action="https://www.google.com">
+	<ol>
+		<li>
+			<fieldset>
+				<legend>Your details</legend>
+				<ol>
+					<li>
+						<label for="username">Username</label>
+						<input type="text" id="username" name="username" autofocus>
+					</li>
+					<li>
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" required>
+					</li>
+					<li>
+						<label for="phone">Phone</label>
+						<input type="text" id="phone" name="phone">
+					</li>
+				</ol>
+			</fieldset>
+		</li>
+		<li>
+			<fieldset>
+				<legend>Delivery Address</legend>
+				<ol>
+					<li>
+						<label for="address">Address</label>
+						<textarea id="address" name="address" rows="3" ></textarea>
+					</li>
+					<li>
+						<label for="postcode">Post Code</label>
+						<input type="text" id="postcode" placeholder="R3B 1K9" name="postcode">
+					</li>
+					<li>
+						<label for="country">Country</label>
+						<select name="country" id="country">
+							<option value="Australia">Australia</option>
+							<option value="Canada" selected>Canada</option>
+							<option value="US">US</option>
+						</select>
+					</li>
+				</ol>
+			</fieldset>
+		</li>
+		<li>
+			<fieldset>
+				<legend>Card Type</legend>
+				<ol class="cardType">
+					<li>
+						<input type="radio" id="visa" name="cardtype">
+						<label for="visa">VISA</label>
+					</li>
+					<li>
+						<input type="radio" id="mastercard" name="cardtype">
+						<label for="mastercard">MASTER CARD</label>
+					</li>
+					<li>
+						<input type="radio" id="amex" name="cardtype">
+						<label for="amex">AmEx</label>
+					</li>
+				</ol>
+			</fieldset>
+		</li>
+		<li>
+			<label for="cardnumber">Card Number</label>
+			<input id="cardnumber" name="cardnumber" type="number">
+		</li>
+		<li>
+			<label for="secure">Security Code</label>
+			<input id="secure" name="secure" type="number"/>
+		</li>
+		<li>
+			<label for="namecard">Name on Card</label>
+			<input id="namecard" name="namecard" type="text">
+		</li>
+		<li>
+			<fieldset>
+				<button type="submit">BUY IT!</button>
+			</fieldset>
+		</li>
+	</ol>
+</form>
+</body>
+</html>
