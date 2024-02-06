@@ -1,0 +1,7 @@
+nav ul a {
+    transition: 1s;
+}
+
+nav ul a:hover {
+    color: #F00;
+}
