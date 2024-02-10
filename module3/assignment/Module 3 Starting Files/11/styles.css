@@ -1,9 +1,9 @@
 /********f************
 
     Competency 11
-    Name: Luping Xing
-    Date: Feb 5, 2024
-    Description: Competency 11 of Assignment 3 - Aligning Form Elements
+    Name:
+    Date:
+    Description:
 
 *********************/
 
@@ -11,32 +11,4 @@
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
-	list-style-type: none;
-}
-
-form {
-	width: 800px;
-	background-color: lightgreen;
-	color: darkblue;
-	margin: 0 auto;
-	padding: 20px
-}
-
-form li {
-	width: 100%;
-}
-
-form fieldset:nth-child(1) label {
-	float: left;
-	width: 100px;
-}
-
-form fieldset:nth-child(1) input {
-	width: 300px;
-}
-
-form fieldset:nth-child(2) li {
-	float: left;
-	width: 100px;
-	margin-right: 5px;
 }
