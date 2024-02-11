@@ -1,0 +1,60 @@
+/*  normalization  */
+body, header, footer, nav, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    display: block;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+b, strong {
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+i, em {
+    font-style: normal;
+}
+
+u, ins, s, del {
+    text-decoration: none;
+}
+
+table {
+    border: 1px solid #999;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #999;
+}
+
+input, button {
+    outline: none;
+    border: none;
+}
+
+body {
+    font: 12px/1.5 "Microsoft YaHei", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}

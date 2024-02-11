@@ -1,0 +1,159 @@
+/*  Generic settings ------------------------------------------------------------------------------------- */
+body {
+    background-color: rgb(231, 231, 231);
+    font-family: "Verdana", sans-serif;
+}
+
+.container {
+    margin: 11px auto;
+    padding: 11px;
+    height: 1020px;
+    width: 790px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgb(206, 206, 206);
+    border: 1px solid rgb(162, 162, 162);
+}
+
+.float-parent::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.left-float {
+    float: left;
+}
+
+.right-float {
+    float: right;
+}
+
+/*  header area -------------------------------------------------------------------------------------  */
+/*  top-bar  */
+header .top-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-bar ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 2px;
+}
+
+.top-bar ul li {
+    color: rgb(0, 102, 153);
+    border-right: 1px solid rgb(0, 102, 153);
+    height: 14px;
+    line-height: 14px;
+    padding: 0 8px;
+    margin: 0;
+}
+
+.top-bar ul li:last-child {
+    border-right: none;
+    margin-right: 0;
+}
+
+.top-bar form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 135px;
+    margin-bottom: 10px;
+}
+
+.top-bar form input {
+    height: 20px;
+    font-size: 10px;
+}
+
+.top-bar form input[type='text'] {
+    width: 82px;
+    border: 1px solid rgb(156, 156, 156);
+}
+
+.top-bar form input[type='submit'] {
+    height: 21px;
+    width: 45px;
+    border: 1px solid rgb(156, 156, 156);
+    color: black;
+    background-color: rgb(240, 240, 240);
+}
+
+/*  banner  */
+header .banner {
+    margin: 0;
+    padding: 0;
+    width: 790px;
+    height: 195px;
+    background: url("./img/headerBackground.jpg");
+    position: relative;
+}
+
+header .banner .text {
+    color: white;
+}
+
+header .banner .text1 {
+    position: absolute;
+    top: 34px;
+    left: 30px;
+    font-size: 30px;
+    letter-spacing: 6px;
+}
+
+header .banner .text2 {
+    position: absolute;
+    bottom: 24px;
+    right: 42px;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/*  nav bar  */
+header .nav-bar {
+    height: 25px;
+    width: 100%;
+    background-color: #999999;
+}
+
+header .nav-bar ul {
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgb(153, 204, 255) 0%, rgb(3, 105, 155) 100%);
+}
+
+header .nav-bar ul li {
+    height: 25px;
+    padding: 0 10px;
+    border-right: 1px solid rgb(1, 82, 122);
+    border-left: 1px solid rgb(188, 221, 255);
+}
+
+header .nav-bar ul li:hover {
+    background: linear-gradient(to bottom, #fefcea 0%, #f1da36 100%);
+}
+
+header .nav-bar ul li:first-child {
+    border-left: 0;
+}
+
+header .nav-bar ul li:last-child {
+    border-right: 0;
+}
+
+header .nav-bar ul li a {
+    line-height: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+header .nav-bar ul li:hover a {
+    color: black;
+}

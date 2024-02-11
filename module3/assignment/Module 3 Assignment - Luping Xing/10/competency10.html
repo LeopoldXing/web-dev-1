@@ -1,0 +1,45 @@
+<!--------f-----------
+
+	Do not alter this comment block.
+	Only fill out the information below.
+
+    Competency 10
+    Name: Luping Xing
+    Date: Feb 5, 2024
+    Description: Competency 10 of Assignment 3 - Textareas, buttons & selects
+
+--------------------->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Competency 10</title>
+  </head>
+  <body>
+    <!-- Create your form elements inside the form tag -->
+    <!--  the value of the action attribute is https://www.google.com, that means  -->
+    <!--  when the user submit this form, it will send the data to Google's server  -->
+    <form action="https://www.google.com">
+      <ul>
+        <li>
+          <label for="description">Description of the product: </label>
+          <textarea id="description" name="description" rows="3"></textarea>
+        </li>
+        <li>
+          <label for="region">Region: </label>
+          <select id="region" name="region">
+            <option value="asia">Asia</option>
+            <option value="africa">Africa</option>
+            <option value="europe">Europe</option>
+            <option value="na" selected>North America</option>
+            <option value="sa">South America</option>
+          </select>
+        </li>
+        <li>
+          <button type="button">regular button</button>
+          <button type="submit">Submit !</button>
+          <button type="reset">reset</button>
+        </li>
+      </ul>
+    </form>
+  </body>
+</html>

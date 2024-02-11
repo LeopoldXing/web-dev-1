@@ -2,34 +2,72 @@
 <html lang="en">
 <head>
   <title>HAYDEN PLANETARIUM</title>
-  <link type="text/css" href="project01.css">
+  <meta charset="UTF-8">
+  <link type="text/css" rel="stylesheet" href="normalization.css">
+  <link type="text/css" rel="stylesheet" href="project01.css">
 </head>
 <body>
-<!--  header area  -->
-<header>
-  <!--  top bar  -->
-  <div>
+<!--  container  -->
+<div class="container">
+  <!--  header area  -->
+  <header>
+    <!--  top bar  -->
+    <div class="top-bar">
+      <!--  logo  -->
+      <div>
+        <img src="img/logo.png" alt="American Museum Natural History Logo"/>
+      </div>
+      <!--  link  -->
+      <ul>
+        <li><a href="#">Log In</a></li>
+        <li><a href="#">Password?</a></li>
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Visitor Info</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <!--  search bar  -->
+      <form action="#" method="post">
+        <div>
+          <input type="text" name="keyword"/>
+          <input type="submit" value="Search"/>
+        </div>
+      </form>
+    </div>
 
-  </div>
+    <!--  banner  -->
+    <div class="banner">
+      <!--  HAYDEN PLANETARIUM  -->
+      <span class="text text1">HAYDEN PLANETARIUM</span>
+      <!--  Division of Physical Sciences  -->
+      <span class="text text2">Division of Physical Sciences</span>
+    </div>
 
-  <!--  banner  -->
-  <div></div>
+    <!--  nav bar  -->
+    <nav class="nav-bar">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">PUBLIC PROGRAMS</a></li>
+        <li><a href="#">RESOURCES</a></li>
+        <li><a href="#">DIGITAL UNIVERSE</a></li>
+        <li><a href="#">BLOG</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!--  nav bar  -->
-  <nav></nav>
-</header>
+  <!--  main area  -->
+  <main>
+    <!--  sidebar  -->
+    <aside></aside>
+    <!--  content  -->
+    <div></div>
+  </main>
 
-<!--  main area  -->
-<main>
-  <!--  sidebar  -->
-  <aside></aside>
-  <!--  content  -->
-  <div></div>
-</main>
+  <!--  footer area  -->
+  <footer>
 
-<!--  footer area  -->
-<footer>
-
-</footer>
+  </footer>
+</div>
 </body>
 </html>
