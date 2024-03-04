@@ -7,7 +7,7 @@
 
 --------------------->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>HAYDEN PLANETARIUM</title>
   <meta charset="UTF-8">
@@ -18,6 +18,7 @@
 <div id="container">
   <!--  header area  -->
   <header>
+    <h1 class="visually-hidden">HAYDEN PLANETARIUM</h1>
     <!--  top bar  -->
     <div class="top-bar">
       <!--  logo  -->
@@ -36,8 +37,10 @@
       <!--  search bar  -->
       <form action="#" method="post">
         <div>
-          <input type="text" name="keyword"/>
-          <input type="submit" value="Search"/>
+          <label for="search" class="visually-hidden">keyword</label>
+          <input type="text" id="search" name="keyword"/>
+          <label for="submit" class="visually-hidden">submit search</label>
+          <input type="submit" id="submit" value="Search"/>
         </div>
       </form>
     </div>
@@ -108,7 +111,7 @@
       <!--  article  -->
       <article>
         <h2>About Us</h2>
-        <h4>Find out more about our department.</h4>
+        <h3>Find out more about our department.</h3>
         <!--  part 1 of the article  -->
         <section class="part1">
           <p>
