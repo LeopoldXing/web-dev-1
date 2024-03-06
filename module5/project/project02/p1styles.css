@@ -121,11 +121,6 @@ a:active {
 	background-repeat: no-repeat;
 }
 
-.visually-hidden {
-	position: absolute;
-	left: -9999px;
-	top: -9999px;
-}
 /*  header area -------------------------------------------------------------------------------------  */
 /*  top-bar  */
 header .top-bar {
