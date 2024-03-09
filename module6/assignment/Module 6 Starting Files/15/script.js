@@ -1,12 +1,12 @@
 /********f************
 
-	Do not alter this comment block. 
+	Do not alter this comment block.
 	Only fill out the information below.
-	
+
 	Competency 15
-	Name: 
-	Date:
-	Description:
+	Name: Luping Xing
+	Date: Mar 8, 2024
+	Description: Assignment 6, Competency 15 - Using Math in Javascript
 
 ********************/
 
@@ -53,7 +53,11 @@ function clearFields() {
 	returns the calculated pay
 */
 function calcPay(hours, rate) {
-
+	if(hours > 40) {
+		return 40 * rate + (hours - 40) * rate * 1.5;
+	} else {
+		return hours * rate;
+	}
 }
 
 /*
@@ -82,7 +86,7 @@ function getTax(funcGross) {
 	return funcTax;
 }
 
-/* 
+/*
 	printRow function
 	receives name, gross, taxes, and net pay
 	formats currency
@@ -90,7 +94,9 @@ function getTax(funcGross) {
 */
 function printRow(name, gross, taxes, net) {
 	//	Set values to 2 decimal places here
-
+	gross = gross.toFixed(2);
+	taxes = taxes.toFixed(2);
+	net = net.toFixed(2);
 
 	let tbody = document.getElementsByTagName("tbody")[0];
 	let tr = document.createElement("tr");
