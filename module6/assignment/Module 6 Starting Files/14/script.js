@@ -17,16 +17,17 @@ document.addEventListener("DOMContentLoaded", load);
     Create, insert, and delete elements
 */
 function load() {
-  let loremString = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet autem, culpa dolorem dolorum enim exercitationem explicabo impedit magni maxime minima neque tempore vel voluptatibus. Architecto exercitationem explicabo laborum possimus voluptatem?";
-  let p = document.createElement("p");
-  p.innerHTML = loremString;
-  document.getElementById("results").appendChild(p);
+  let loremIpsum = "Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat, arcu at feugiat loborti."
+  let paragraphTag = document.createElement("p")
+  paragraphTag.innerHTML = loremIpsum;
+  let result = document.getElementById("results")
+  result.appendChild(paragraphTag)
 
-  let h2 = document.createElement("h2");
-  h2.innerHTML = "Some lorem texts";
-  p.parentNode.insertBefore(h2, p);
+  let h2 = document.createElement("h2")
+  h2.innerHTML = "lorem Texts";
+  paragraphTag.parentNode.insertBefore(h2, paragraphTag);
 
-  document.getElementsByTagName("footer")[0].remove();
+  document.getElementsByTagName("footer")[0].remove()
 }
 
 
