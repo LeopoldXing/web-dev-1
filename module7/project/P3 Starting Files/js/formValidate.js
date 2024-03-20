@@ -98,37 +98,143 @@ function formHasErrors() {
   }
 
   //	Complete the validations below
-  // Postal code
-  let postalCodeReg = new RegExp(/^[ABCEGHJKLMNPRSTVXY]\\d[A-Z] \\d[A-Z]\\d$/);
-  let postalVal = document.getElementById("postal").value;
-  if (!postalCodeReg.test(postalVal)) {
-    // postal code is invalid
-  }
 
-  // email
-  let emailReg = new RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/);
-  let emailVal = document.getElementById("email").value;
-  if(!emailReg.test(emailVal)) {
-    // email is invalid
-
-  }
-
+  /*
+  * Shipping Information Validation
+  * */
   // required fields
-  const requiredFields = ["fullname", "address", "city", "postal", "email"];
-  requiredFields.forEach(field => {
-    let fieldElement = document.getElementById(field);
+  const requiredShippingFields = ["fullname", "address", "city", "postal", "email"];
+  for (let i = 0; i < requiredShippingFields.length; i++) {
+    let fieldElement = document.getElementById(requiredShippingFields[i]);
     if (!fieldElement.value) {
       // field is empty
-      document.getElementById(field + "_error").style.display = "block";
+      document.getElementById(requiredShippingFields[i] + "_error").style.display = "block";
 
-      if(!errorFlag) {
+      if (!errorFlag) {
         fieldElement.focus();
         fieldElement.select();
       }
 
       errorFlag = true;
     }
-  })
+  }
+
+  // Postal code
+  let postalCodeReg = new RegExp(/^[ABCEGHJKLMNPRSTVXY]\d[A-Z] \d[A-Z]\d$/);
+  let postalElement = document.getElementById("postal");
+  if (!postalCodeReg.test(postalElement.value)) {
+    // postal code is invalid
+    document.getElementById("postalformat_error").style.display = "block";
+
+    if (!errorFlag) {
+      postalElement.focus();
+      postalElement.select();
+    }
+
+    errorFlag = true;
+  }
+
+  // email
+  let emailReg = new RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
+  let emailElement = document.getElementById("email");
+  if (!emailReg.test(emailElement.value)) {
+    // email is invalid
+    document.getElementById("emailformat_error").style.display = "block";
+
+    if (!errorFlag) {
+      emailElement.focus();
+      emailElement.select();
+    }
+
+    errorFlag = true;
+  }
+
+  /*
+  * Payment Information Validation
+  * */
+  // payment method
+  const paymentMethods = ["visa", "amex", "mastercard"];
+  let itemChecked = false;
+  for (let i = 0; i < paymentMethods.length; i++) {
+    if (document.getElementById(paymentMethods[i]).checked) {
+      itemChecked = true;
+    }
+  }
+  if (!itemChecked) {
+    // no payment method was checked
+    document.getElementById("cardtype_error").style.display = "block";
+    errorFlag = true;
+  }
+
+  // required fields
+  const requiredPaymentFields = ["cardname", "month", "cardnumber"];
+  for (let i = 0; i < requiredPaymentFields.length; i++) {
+    let fieldElement = document.getElementById(requiredPaymentFields[i]);
+    if (!fieldElement.value) {
+      // field is empty
+      document.getElementById(requiredPaymentFields[i] + "_error").style.display = "block";
+
+      if (!errorFlag) {
+        fieldElement.focus();
+        fieldElement.select();
+      }
+
+      errorFlag = true;
+    }
+  }
+
+  // expiry date
+  let expiryDateCheckPassed = true;
+  let monthElement = document.getElementById("month");
+  let monthVal = monthElement.value;
+  let yearVal = document.getElementById("year").value;
+  if (!monthVal || !yearVal || isNaN(monthVal) || isNaN(yearVal) || monthVal <= 0 || monthVal > 12 || yearVal <= 0) {
+    expiryDateCheckPassed = false;
+  } else {
+    let expiryDate = new Date(yearVal, monthVal - 1);
+    if (expiryDate < Date.now()) {
+      expiryDateCheckPassed = false;
+    }
+  }
+  if(!expiryDateCheckPassed) {
+    document.getElementById("expiry_error").style.display = "block";
+    if (!errorFlag) {
+      monthElement.focus();
+    }
+    errorFlag = true;
+  }
+
+  /*
+  * Modulus Check Logic
+  * */
+  // check card number has 10 digits
+  let cardNumberCheckPassed = true;
+  let cardNumber = document.getElementById("cardnumber");
+  let cardNumberVal = cardNumber.value;
+  if (cardNumberVal && cardNumberVal.length === 10) {
+    // card number has 10 digits
+    let sum = 0;
+    let checkingFactors = [4, 3, 2, 7, 6, 5, 4, 3, 2];
+    for (let i = 0; i < 9; i++) {
+      let currentNumber = parseInt(cardNumberVal[i]);
+      sum += currentNumber * checkingFactors[i];
+    }
+    if ((11 - (sum % 11)) != parseInt(cardNumberVal[9])) {
+      // modulus check failed
+      cardNumberCheckPassed = false;
+    }
+  } else {
+    // card number doesn't have 10 digits
+    cardNumberCheckPassed = false;
+  }
+  if(!cardNumberCheckPassed) {
+    document.getElementById("invalidcard_error").style.display = "block";
+    if (!errorFlag) {
+      cardNumber.focus();
+      cardNumber.select();
+    }
+    errorFlag = true;
+  }
 
   return errorFlag;
 }
@@ -179,40 +285,40 @@ function addItemToCart(itemNumber) {
     cartItemRemoveButton.setAttribute("type", "button");
     cartItemRemoveButton.innerHTML = "Remove";
     cartItemRemoveButton.addEventListener("click",
-        // Annonymous function for the click event of a cart item remove button
-        function () {
-          // Removes the buttons grandparent (li) from the cart list
-          this.parentNode.parentNode.removeChild(this.parentNode);
+      // Annonymous function for the click event of a cart item remove button
+      function () {
+        // Removes the buttons grandparent (li) from the cart list
+        this.parentNode.parentNode.removeChild(this.parentNode);
 
-          // Deteremine the quantity field id for the item being removed from the cart by
-          // getting the number at the end of the remove button's id
-          let itemQuantityFieldId = "qty" + this.id.charAt(this.id.length - 1);
+        // Deteremine the quantity field id for the item being removed from the cart by
+        // getting the number at the end of the remove button's id
+        let itemQuantityFieldId = "qty" + this.id.charAt(this.id.length - 1);
 
-          // Get a reference to quanitity field of the item being removed form the cart
-          let itemQuantityField = document.getElementById(itemQuantityFieldId);
+        // Get a reference to quanitity field of the item being removed form the cart
+        let itemQuantityField = document.getElementById(itemQuantityFieldId);
 
-          // Set the visibility of the quantity field's parent (div) to visible
-          itemQuantityField.parentNode.style.visibility = "visible";
+        // Set the visibility of the quantity field's parent (div) to visible
+        itemQuantityField.parentNode.style.visibility = "visible";
 
-          // Initialize the quantity field value
-          itemQuantityField.value = "";
+        // Initialize the quantity field value
+        itemQuantityField.value = "";
 
-          // Decrement the number of items in the cart
-          numberOfItemsInCart--;
+        // Decrement the number of items in the cart
+        numberOfItemsInCart--;
 
-          // Decrement the order total
-          orderTotal -= itemTotal;
+        // Decrement the order total
+        orderTotal -= itemTotal;
 
-          // Update the total purchase in the cart
-          document.getElementById("cartTotal").innerHTML = formatCurrency(orderTotal);
+        // Update the total purchase in the cart
+        document.getElementById("cartTotal").innerHTML = formatCurrency(orderTotal);
 
-          // Determine if there are no items in the car
-          if (numberOfItemsInCart == 0) {
-            // Show the no items in cart list item
-            document.getElementById("noItems").style.display = "block";
-          }
-        },
-        false
+        // Determine if there are no items in the car
+        if (numberOfItemsInCart == 0) {
+          // Show the no items in cart list item
+          document.getElementById("noItems").style.display = "block";
+        }
+      },
+      false
     );
 
     // Create a div used to clear the floats
@@ -280,15 +386,28 @@ function load() {
     year.appendChild(newYearOption);
   }
 
+  // hide all error message
+  hideErrors();
+
   // Add event listener for the form submit
   document.getElementById("orderform").addEventListener("submit", validate);
 
   // add event listeners to 5 buttons
-  document.getElementById("addMac").addEventListener("click", () => addItemToCart(1));
-  document.getElementById("addMouse").addEventListener("click", () => addItemToCart(2));
-  document.getElementById("addWD").addEventListener("click", () => addItemToCart(3));
-  document.getElementById("addNexus").addEventListener("click", () => addItemToCart(4));
-  document.getElementById("addDrums").addEventListener("click", () => addItemToCart(5));
+  document.getElementById("addMac").addEventListener("click", function () {
+    addItemToCart(1);
+  });
+  document.getElementById("addMouse").addEventListener("click", function () {
+    addItemToCart(2);
+  });
+  document.getElementById("addWD").addEventListener("click", function () {
+    addItemToCart(3);
+  });
+  document.getElementById("addNexus").addEventListener("click", function () {
+    addItemToCart(4);
+  });
+  document.getElementById("addDrums").addEventListener("click", function () {
+    addItemToCart(5);
+  });
 
 }
 
