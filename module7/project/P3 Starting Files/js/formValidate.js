@@ -1,11 +1,11 @@
 /********f************
 
-	Project 3 Javascript
-	Name: Luping Xing
-	Date: 16 Mar, 2024
-	Description: Project 3: Form Validation
+ Project 3 Javascript
+ Name: Luping Xing
+ Date: 16 Mar, 2024
+ Description: Project 3: Form Validation
 
-*********************/
+ *********************/
 
 const itemDescription = ["MacBook", "The Razer", "WD My Passport", "Nexus 7", "DD-45 Drums"];
 const itemPrice = [1899.99, 79.99, 179.99, 249.99, 119.99];
@@ -21,22 +21,22 @@ let orderTotal = 0;
  *          validation errors
  */
 function validate(e) {
-	// Hides all error elements on the page
-	hideErrors();
+  // Hides all error elements on the page
+  hideErrors();
 
-	// Determine if the form has errors
-	if (formHasErrors()) {
-		// Prevents the form from submitting
-		e.preventDefault();
+  // Determine if the form has errors
+  if (formHasErrors()) {
+    // Prevents the form from submitting
+    e.preventDefault();
 
-		// When using onSubmit="validate()" in markup, returning false would prevent
-		// the form from submitting
-		return false;
-	}
+    // When using onSubmit="validate()" in markup, returning false would prevent
+    // the form from submitting
+    return false;
+  }
 
-	// When using onSubmit="validate()" in markup, returning true would allow
-	// the form to submit
-	return true;
+  // When using onSubmit="validate()" in markup, returning true would allow
+  // the form to submit
+  return true;
 
 
 }
@@ -49,25 +49,25 @@ function validate(e) {
  *          the browser from resetting the form.
  */
 function resetForm(e) {
-	// Confirm that the user wants to reset the form.
-	if (confirm('Clear order?')) {
-		// Ensure all error fields are hidden
-		hideErrors();
+  // Confirm that the user wants to reset the form.
+  if (confirm('Clear order?')) {
+    // Ensure all error fields are hidden
+    hideErrors();
 
-		// Set focus to the first text field on the page
-		document.getElementById("qty1").focus();
+    // Set focus to the first text field on the page
+    document.getElementById("qty1").focus();
 
-		// When using onReset="resetForm()" in markup, returning true will allow
-		// the form to reset
-		return true;
-	}
+    // When using onReset="resetForm()" in markup, returning true will allow
+    // the form to reset
+    return true;
+  }
 
-	// Prevents the form from resetting
-	e.preventDefault();
+  // Prevents the form from resetting
+  e.preventDefault();
 
-	// When using onReset="resetForm()" in markup, returning false would prevent
-	// the form from resetting
-	return false;
+  // When using onReset="resetForm()" in markup, returning false would prevent
+  // the form from resetting
+  return false;
 }
 
 /*
@@ -76,27 +76,61 @@ function resetForm(e) {
  * return   True if an error was found; False if no errors were found
  */
 function formHasErrors() {
-	// Determine if any items are in the cart
-	// When the cart has not items, submission of form is halted
-	if (numberOfItemsInCart == 0) {
-		// Display an error message contained in a modal dialog element
+  let errorFlag = false;
 
-		const modal = document.querySelector("#cartError");
-		modal.showModal();
+  // Determine if any items are in the cart
+  // When the cart has not items, submission of form is halted
+  if (numberOfItemsInCart == 0) {
+    // Display an error message contained in a modal dialog element
 
-		const closeModal = document.querySelector(".close-button");
+    const modal = document.querySelector("#cartError");
+    modal.showModal();
 
-		closeModal.addEventListener("click", () => {
-			modal.close();
-			document.getElementById("qty1").focus();
-		});
+    const closeModal = document.querySelector(".close-button");
 
-		// Form has errors
-		return true;
-	}
+    closeModal.addEventListener("click", () => {
+      modal.close();
+      document.getElementById("qty1").focus();
+    });
 
-	//	Complete the validations below
+    // Form has errors
+    return true;
+  }
 
+  //	Complete the validations below
+  // Postal code
+  let postalCodeReg = new RegExp(/^[ABCEGHJKLMNPRSTVXY]\\d[A-Z] \\d[A-Z]\\d$/);
+  let postalVal = document.getElementById("postal").value;
+  if (!postalCodeReg.test(postalVal)) {
+    // postal code is invalid
+  }
+
+  // email
+  let emailReg = new RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/);
+  let emailVal = document.getElementById("email").value;
+  if(!emailReg.test(emailVal)) {
+    // email is invalid
+
+  }
+
+  // required fields
+  const requiredFields = ["fullname", "address", "city", "postal", "email"];
+  requiredFields.forEach(field => {
+    let fieldElement = document.getElementById(field);
+    if (!fieldElement.value) {
+      // field is empty
+      document.getElementById(field + "_error").style.display = "block";
+
+      if(!errorFlag) {
+        fieldElement.focus();
+        fieldElement.select();
+      }
+
+      errorFlag = true;
+    }
+  })
+
+  return errorFlag;
 }
 
 /*
@@ -105,162 +139,158 @@ function formHasErrors() {
  * param itemNumber The number used in the id of the quantity, item and remove button elements.
  */
 function addItemToCart(itemNumber) {
-	// Get the value of the quantity field for the add button that was clicked
-	let quantityValue = trim(document.getElementById("qty" + itemNumber).value);
+  // Get the value of the quantity field for the add button that was clicked
+  let quantityValue = trim(document.getElementById("qty" + itemNumber).value);
 
-	// Determine if the quantity value is valid
-	if (!isNaN(quantityValue) && quantityValue != "" && quantityValue != null && quantityValue != 0 && !document.getElementById("cartItem" + itemNumber)) {
-		// Hide the parent of the quantity field being evaluated
-		document.getElementById("qty" + itemNumber).parentNode.style.visibility = "hidden";
+  // Determine if the quantity value is valid
+  if (!isNaN(quantityValue) && quantityValue != "" && quantityValue != null && quantityValue != 0 && !document.getElementById("cartItem" + itemNumber)) {
+    // Hide the parent of the quantity field being evaluated
+    document.getElementById("qty" + itemNumber).parentNode.style.visibility = "hidden";
 
-		// Determine if there are no items in the car
-		if (numberOfItemsInCart == 0) {
-			// Hide the no items in cart list item
-			document.getElementById("noItems").style.display = "none";
-		}
+    // Determine if there are no items in the car
+    if (numberOfItemsInCart == 0) {
+      // Hide the no items in cart list item
+      document.getElementById("noItems").style.display = "none";
+    }
 
-		// Create the image for the cart item
-		let cartItemImage = document.createElement("img");
-		cartItemImage.src = "images/" + itemImage[itemNumber - 1];
-		cartItemImage.alt = itemDescription[itemNumber - 1];
+    // Create the image for the cart item
+    let cartItemImage = document.createElement("img");
+    cartItemImage.src = "images/" + itemImage[itemNumber - 1];
+    cartItemImage.alt = itemDescription[itemNumber - 1];
 
-		// Create the span element containing the item description
-		let cartItemDescription = document.createElement("span");
-		cartItemDescription.innerHTML = itemDescription[itemNumber - 1];
+    // Create the span element containing the item description
+    let cartItemDescription = document.createElement("span");
+    cartItemDescription.innerHTML = itemDescription[itemNumber - 1];
 
-		// Create the span element containing the quanitity to order
-		let cartItemQuanity = document.createElement("span");
-		cartItemQuanity.innerHTML = quantityValue;
+    // Create the span element containing the quanitity to order
+    let cartItemQuanity = document.createElement("span");
+    cartItemQuanity.innerHTML = quantityValue;
 
-		// Calculate the subtotal of the item ordered
-		let itemTotal = quantityValue * itemPrice[itemNumber - 1];
+    // Calculate the subtotal of the item ordered
+    let itemTotal = quantityValue * itemPrice[itemNumber - 1];
 
-		// Create the span element containing the subtotal of the item ordered
-		let cartItemTotal = document.createElement("span");
-		cartItemTotal.innerHTML = formatCurrency(itemTotal);
+    // Create the span element containing the subtotal of the item ordered
+    let cartItemTotal = document.createElement("span");
+    cartItemTotal.innerHTML = formatCurrency(itemTotal);
 
-		// Create the remove button for the cart item
-		let cartItemRemoveButton = document.createElement("button");
-		cartItemRemoveButton.setAttribute("id", "removeItem" + itemNumber);
-		cartItemRemoveButton.setAttribute("type", "button");
-		cartItemRemoveButton.innerHTML = "Remove";
-		cartItemRemoveButton.addEventListener("click",
-			// Annonymous function for the click event of a cart item remove button
-			function () {
-				// Removes the buttons grandparent (li) from the cart list
-				this.parentNode.parentNode.removeChild(this.parentNode);
+    // Create the remove button for the cart item
+    let cartItemRemoveButton = document.createElement("button");
+    cartItemRemoveButton.setAttribute("id", "removeItem" + itemNumber);
+    cartItemRemoveButton.setAttribute("type", "button");
+    cartItemRemoveButton.innerHTML = "Remove";
+    cartItemRemoveButton.addEventListener("click",
+        // Annonymous function for the click event of a cart item remove button
+        function () {
+          // Removes the buttons grandparent (li) from the cart list
+          this.parentNode.parentNode.removeChild(this.parentNode);
 
-				// Deteremine the quantity field id for the item being removed from the cart by
-				// getting the number at the end of the remove button's id
-				let itemQuantityFieldId = "qty" + this.id.charAt(this.id.length - 1);
+          // Deteremine the quantity field id for the item being removed from the cart by
+          // getting the number at the end of the remove button's id
+          let itemQuantityFieldId = "qty" + this.id.charAt(this.id.length - 1);
 
-				// Get a reference to quanitity field of the item being removed form the cart
-				let itemQuantityField = document.getElementById(itemQuantityFieldId);
+          // Get a reference to quanitity field of the item being removed form the cart
+          let itemQuantityField = document.getElementById(itemQuantityFieldId);
 
-				// Set the visibility of the quantity field's parent (div) to visible
-				itemQuantityField.parentNode.style.visibility = "visible";
+          // Set the visibility of the quantity field's parent (div) to visible
+          itemQuantityField.parentNode.style.visibility = "visible";
 
-				// Initialize the quantity field value
-				itemQuantityField.value = "";
+          // Initialize the quantity field value
+          itemQuantityField.value = "";
 
-				// Decrement the number of items in the cart
-				numberOfItemsInCart--;
+          // Decrement the number of items in the cart
+          numberOfItemsInCart--;
 
-				// Decrement the order total
-				orderTotal -= itemTotal;
+          // Decrement the order total
+          orderTotal -= itemTotal;
 
-				// Update the total purchase in the cart
-				document.getElementById("cartTotal").innerHTML = formatCurrency(orderTotal);
+          // Update the total purchase in the cart
+          document.getElementById("cartTotal").innerHTML = formatCurrency(orderTotal);
 
-				// Determine if there are no items in the car
-				if (numberOfItemsInCart == 0) {
-					// Show the no items in cart list item
-					document.getElementById("noItems").style.display = "block";
-				}
-			},
-			false
-		);
+          // Determine if there are no items in the car
+          if (numberOfItemsInCart == 0) {
+            // Show the no items in cart list item
+            document.getElementById("noItems").style.display = "block";
+          }
+        },
+        false
+    );
 
-		// Create a div used to clear the floats
-		let cartClearDiv = document.createElement("div");
-		cartClearDiv.setAttribute("class", "clear");
+    // Create a div used to clear the floats
+    let cartClearDiv = document.createElement("div");
+    cartClearDiv.setAttribute("class", "clear");
 
-		// Create the paragraph which contains the cart item summary elements
-		let cartItemParagraph = document.createElement("p");
-		cartItemParagraph.appendChild(cartItemImage);
-		cartItemParagraph.appendChild(cartItemDescription);
-		cartItemParagraph.appendChild(document.createElement("br"));
-		cartItemParagraph.appendChild(document.createTextNode("Quantity: "));
-		cartItemParagraph.appendChild(cartItemQuanity);
-		cartItemParagraph.appendChild(document.createElement("br"));
-		cartItemParagraph.appendChild(document.createTextNode("Total: "));
-		cartItemParagraph.appendChild(cartItemTotal);
+    // Create the paragraph which contains the cart item summary elements
+    let cartItemParagraph = document.createElement("p");
+    cartItemParagraph.appendChild(cartItemImage);
+    cartItemParagraph.appendChild(cartItemDescription);
+    cartItemParagraph.appendChild(document.createElement("br"));
+    cartItemParagraph.appendChild(document.createTextNode("Quantity: "));
+    cartItemParagraph.appendChild(cartItemQuanity);
+    cartItemParagraph.appendChild(document.createElement("br"));
+    cartItemParagraph.appendChild(document.createTextNode("Total: "));
+    cartItemParagraph.appendChild(cartItemTotal);
 
-		// Create the cart list item and add the elements within it
-		let cartItem = document.createElement("li");
-		cartItem.setAttribute("id", "cartItem" + itemNumber);
-		cartItem.appendChild(cartItemParagraph);
-		cartItem.appendChild(cartItemRemoveButton);
-		cartItem.appendChild(cartClearDiv);
+    // Create the cart list item and add the elements within it
+    let cartItem = document.createElement("li");
+    cartItem.setAttribute("id", "cartItem" + itemNumber);
+    cartItem.appendChild(cartItemParagraph);
+    cartItem.appendChild(cartItemRemoveButton);
+    cartItem.appendChild(cartClearDiv);
 
-		// Add the cart list item to the top of the list
-		let cart = document.getElementById("cart");
-		cart.insertBefore(cartItem, cart.childNodes[0]);
+    // Add the cart list item to the top of the list
+    let cart = document.getElementById("cart");
+    cart.insertBefore(cartItem, cart.childNodes[0]);
 
-		// Increment the number of items in the cart
-		numberOfItemsInCart++;
+    // Increment the number of items in the cart
+    numberOfItemsInCart++;
 
-		// Increment the total purchase amount
-		orderTotal += itemTotal;
+    // Increment the total purchase amount
+    orderTotal += itemTotal;
 
-		// Update the total puchase amount in the cart
-		document.getElementById("cartTotal").innerHTML = formatCurrency(orderTotal);
-	}
+    // Update the total puchase amount in the cart
+    document.getElementById("cartTotal").innerHTML = formatCurrency(orderTotal);
+  }
 }
 
 /*
  * Hides all of the error elements.
  */
 function hideErrors() {
-	// Get an array of error elements
-	let error = document.getElementsByClassName("error");
+  // Get an array of error elements
+  let error = document.getElementsByClassName("error");
 
-	// Loop through each element in the error array
-	for (let i = 0; i < error.length; i++) {
-		// Hide the error element by setting it's display style to "none"
-		error[i].style.display = "none";
-	}
+  // Loop through each element in the error array
+  for (let i = 0; i < error.length; i++) {
+    // Hide the error element by setting it's display style to "none"
+    error[i].style.display = "none";
+  }
 }
 
 /*
  * Handles the load event of the document.
  */
 function load() {
-	//	Populate the year select with up to date values
-	let year = document.getElementById("year");
-	let currentDate = new Date();
-	for (let i = 0; i < 7; i++) {
-		let newYearOption = document.createElement("option");
-		newYearOption.value = currentDate.getFullYear() + i;
-		newYearOption.innerHTML = currentDate.getFullYear() + i;
-		year.appendChild(newYearOption);
-	}
+  //	Populate the year select with up to date values
+  let year = document.getElementById("year");
+  let currentDate = new Date();
+  for (let i = 0; i < 7; i++) {
+    let newYearOption = document.createElement("option");
+    newYearOption.value = currentDate.getFullYear() + i;
+    newYearOption.innerHTML = currentDate.getFullYear() + i;
+    year.appendChild(newYearOption);
+  }
 
-	// Add event listener for the form submit
-	document.getElementById("orderform").addEventListener("submit", validate);
+  // Add event listener for the form submit
+  document.getElementById("orderform").addEventListener("submit", validate);
+
+  // add event listeners to 5 buttons
+  document.getElementById("addMac").addEventListener("click", () => addItemToCart(1));
+  document.getElementById("addMouse").addEventListener("click", () => addItemToCart(2));
+  document.getElementById("addWD").addEventListener("click", () => addItemToCart(3));
+  document.getElementById("addNexus").addEventListener("click", () => addItemToCart(4));
+  document.getElementById("addDrums").addEventListener("click", () => addItemToCart(5));
+
 }
 
 // Add document load event listener
 document.addEventListener("DOMContentLoaded", load);
-
-
-
-
-
-
-
-
-
-
-
-
