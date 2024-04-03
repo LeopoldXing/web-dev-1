@@ -45,7 +45,7 @@ function createHTML(data) {
   for (let i = 0; i < keys.length; i++) {
     let currentBreed = values[i];
 
-    if (currentBreed && currentBreed.length > 0) {
+    if (Array.isArray(currentBreed) && currentBreed.length > 0) {
       let ol = document.createElement("ol");
       let label = document.createElement("span");
       label.innerText = keys[i] + ": ";

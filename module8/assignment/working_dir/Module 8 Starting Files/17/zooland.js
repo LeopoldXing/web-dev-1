@@ -19,7 +19,28 @@ document.addEventListener("DOMContentLoaded", load);
     You will then add the code required to meet the specifications
  */
 function createZooland(zoolandData) {
+  let contentDiv = document.getElementById("content");
 
+  let h2 = document.createElement("h2");
+  let h3 = document.createElement("h3");
+  let blockquote = document.createElement("blockquote");
+
+  let elephantData = zoolandData[0];
+
+  h2.innerText = elephantData.common_name;
+  h3.innerText = elephantData.scientific_name;
+  blockquote.innerText = elephantData.description;
+
+  contentDiv.appendChild(h2);
+  contentDiv.appendChild(h3);
+  contentDiv.appendChild(blockquote);
+
+  let imageList = elephantData.images.image;
+  for(let i = 0; i < imageList.length; i++) {
+    let img = document.createElement("img");
+    img.src = `images/${imageList[i]}`;
+    contentDiv.appendChild(img);
+  }
 }
 
 /*
