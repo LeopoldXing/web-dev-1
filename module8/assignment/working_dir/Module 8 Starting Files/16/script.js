@@ -18,7 +18,7 @@
  */
 function load() {
 
-  fetch("https://dog.ceo/api/breeds/list/all")
+  fetch("https://dog.ceo/api/breed/hound/list")
     .then(result => {
       return result.json();
     })
@@ -66,6 +66,9 @@ function createHTML(data) {
 
   mainElement.appendChild(div);
 }
+
+//adds an event listener to execute onLoad method when page finished loading
+document.addEventListener("DOMContentLoaded", load);
 
 //adds an event listener to execute onLoad method when page finished loading
 document.addEventListener("DOMContentLoaded", load);

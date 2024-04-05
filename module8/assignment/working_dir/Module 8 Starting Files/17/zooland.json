@@ -114,5 +114,18 @@
         "zebra4.jpg"
       ]
     }
+  },
+  {
+    "common_name": "Atlantic turtle",
+    "scientific_name": "Loggerhead turtle",
+    "description": "The loggerhead turtle, with its large head and powerful jaws, is a species of sea turtle known for its reddish-brown carapace and its wide distribution across the world's oceans.",
+    "images": {
+      "image": [
+        "atlantic_turtle1.jpeg",
+        "atlantic_turtle2.png",
+        "atlantic_turtle3.jpeg",
+        "atlantic_turtle4.jpeg"
+      ]
+    }
   }
 ]

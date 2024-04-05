@@ -25,7 +25,7 @@ function createZooland(zoolandData) {
   let h3 = document.createElement("h3");
   let blockquote = document.createElement("blockquote");
 
-  let elephantData = zoolandData[0];
+  let elephantData = zoolandData[zoolandData.length - 1];
 
   h2.innerText = elephantData.common_name;
   h3.innerText = elephantData.scientific_name;
