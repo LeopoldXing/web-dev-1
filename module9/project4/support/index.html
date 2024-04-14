@@ -131,7 +131,7 @@
                    placeholder="Enter your phone number"/>
           </div>
         </div>
-        <p class="w-full mb-6 text-red-600 font-bold pl-32 hidden">Phone number validated failed!</p>
+        <p id="phoneformat_error" class="w-full mb-6 text-red-600 font-bold pl-32 hidden">Phone number validated failed!</p>
       </div>
       <div class="w-full px-6 my-3">
         <div class="w-full flex space-between">
@@ -139,11 +139,11 @@
             Email:
           </p>
           <div class="w-96 h-16">
-            <input type="email" class="w-full p-3 border border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
+            <input id="email" type="email" class="w-full p-3 border border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
                    placeholder="Enter your Email address"/>
           </div>
         </div>
-        <p class="w-full mb-6 text-red-600 font-bold pl-32 hidden">Email format error!</p>
+        <p id="emailformat_error" class="w-full mb-6 text-red-600 font-bold pl-32 hidden">Email format error!</p>
       </div>
       <div class="w-full px-6 my-3">
         <div class="w-full flex space-between">
@@ -151,11 +151,11 @@
             Comments:
           </p>
           <div class="w-96 h-16">
-            <input type="text" class="w-full p-3 border border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
+            <input id="comment" type="text" class="w-full p-3 border border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
                    placeholder="What's in your mind ?"/>
           </div>
         </div>
-        <p class="w-full mb-6 text-red-600 font-bold pl-32 hidden">Comments can not be empty!</p>
+        <p id="commenterror" class="w-full mb-6 text-red-600 font-bold pl-32 hidden">Comments can not be empty!</p>
       </div>
       <div class="w-full px-6 my-3">
         <div class="w-full flex space-between">
