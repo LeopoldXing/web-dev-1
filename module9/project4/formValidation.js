@@ -71,21 +71,14 @@ const validateForm = (event) => {
 }
 
 const handleFormSubmission = (e) => {
-  // Hides all error elements on the page
   hideErrors();
 
-  // Determine if the form has errors
   if (validateForm()) {
-    // Prevents the form from submitting
     e.preventDefault();
 
-    // When using onSubmit="validate()" in markup, returning false would prevent
-    // the form from submitting
     return false;
   }
 
-  // When using onSubmit="validate()" in markup, returning true would allow
-  // the form to submit
   return true;
 }
 
