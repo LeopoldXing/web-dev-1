@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About</title>
+  <meta charset="UTF-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap" rel="stylesheet"/>
+  <script src="../script.js" defer></script>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="../customized.css"/>
+  <script>
+    tailwind.config = {
+      content: ['./*.html'],
+      theme: {
+        screens: {
+          sm: '480px',
+          md: '768px',
+          lg: '976px',
+          xl: '1440px',
+        },
+        extend: {
+          fontFamily: {
+            sans: ['Josefin Sans', 'sans-serif'],
+            alata: ['Alata'],
+          },
+          letterSpacing: {
+            widest: '.3em',
+          },
+        },
+      },
+      plugins: [],
+    }
+  </script>
+</head>
+<body>
+<header class="header-content bg-red-800">
+  <!-- Hero Section -->
+  <section id="hero">
+    <!-- Hero Container -->
+    <div class="container max-w-6xl mx-auto px-6 py-3">
+      <!-- Menu/Logo Container -->
+      <nav class="flex items-center justify-between font-bold text-white">
+        <!-- Logo -->
+        <a href="../index.html"><span class="font-bold text-white text-4xl pl-12 text-center hover:cursor-pointer">RRC Communication Center</span></a>
+        <!-- Menu -->
+        <div class="hidden h-6 font-alata md:flex md:space-x-8">
+          <div class="group">
+            <a href="../about/index.html">About</a>
+            <div
+                class="mx-2 group-hover:border-b group-hover:border-blue-50"
+            ></div>
+          </div>
+          <div class="group">
+            <a href="../resources/index.html">Resources</a>
+            <div
+                class="mx-2 group-hover:border-b group-hover:border-blue-50"
+            ></div>
+          </div>
+          <div class="group">
+            <a href="../documents/index.html">Documents</a>
+            <div
+                class="mx-2 group-hover:border-b group-hover:border-blue-50"
+            ></div>
+          </div>
+          <div class="group">
+            <a href="../support/index.html">Support</a>
+            <div
+                class="mx-2 group-hover:border-b group-hover:border-blue-50"
+            ></div>
+          </div>
+        </div>
+        <!-- Hamburger Button -->
+        <div class="md:hidden">
+          <button
+              id="menu-btn"
+              type="button"
+              class="z-40 block hamburger md:hidden focus:outline-none">
+            <span class="hamburger-top"></span>
+            <span class="hamburger-middle"></span>
+            <span class="hamburger-bottom"></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div id="menu"
+           class="absolute top-0 bottom-0 left-0 hidden flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-white uppercase bg-black">
+        <a href="../about/index.html" class="hover:text-pink-500">About</a>
+        <a href="../resources/index.html" class="hover:text-pink-500">Resources</a>
+        <a href="../documents/index.html" class="hover:text-pink-500">Documents</a>
+        <a href="../support/index.html" class="hover:text-pink-500">Support</a>
+      </div>
+    </div>
+  </section>
+</header>
+<main class="w-screen">
+  <div class="max-w-6xl px-6 mx-auto my-16 container text-gray-900 z-0">
+    <div class="px-6 bg-white">
+      <h2 class="max-w-2/3 mt-10 mb-6 font-sans text-5xl text-center text-gray-900 uppercase">
+        What are strategies ?
+      </h2>
+
+      <p class="w-full text-left pl-3 mb-3 text-xl">
+        We use strategies all the time. We have a strategy for getting to class or work on time (set an alarm, take an early bus, put gas in the car the night
+        before), strategies for making it through the level in a game (approach from the left, use this tool, use a cheat code), a strategy for getting in and
+        out
+        of the grocery store as fast as possible (make a list, organize the list by sections of the store).
+      </p>
+      <p class="w-full text-left pl-3 text-xl">
+        So what are these "communication strategies" in the name of this course? They're a set of 11 strategies or skills you can develop to help you become a
+        better communicator and help you build your human skills.
+      </p>
+    </div>
+
+    <div class="px-6 bg-white mt-24">
+      <h2 class="max-w-2/3 mt-10 mb-6 font-sans text-5xl text-center text-gray-900 uppercase">
+        Psychological Safety
+      </h2>
+
+      <p class="w-full text-left pl-3 mb-3 text-xl">
+        A group that has built psychological safety is a group that allows its members to express thoughts and ideas openly, make errors, give feedback to one
+        another, and accept feedback from others openly and without judgement.
+      </p>
+      <p class="w-full text-left pl-3 mb-3 text-xl">
+        That's a pretty tall order!
+      </p>
+      <p class="w-full text-left pl-3 mb-3 text-xl">
+        Building psychological safety takes time and conscious effort on the part of every member of the team, but it is a key component to creating a
+        productive team.
+      </p>
+      <p class="w-full text-left pl-3 text-xl">
+        Psychological safety is a core concept in this course and you'll see it come up over and over again. As you saw in the Teaching and Learning Philosophy,
+        being able to make mistakes and receive, reflect on, and incorporate feedback are really important parts of learning and leadership. In our course, as a
+        group, we want to build psychological safety.
+      </p>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>

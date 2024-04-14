@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap" rel="stylesheet"/>
+  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="./style.css"/>
+  <link rel="stylesheet" href="./customized.css"/>
+  <title>11 Communication Strategies</title>
+  <script>
+    tailwind.config = {
+      content: ['./*.html'],
+      theme: {
+        screens: {
+          sm: '480px',
+          md: '768px',
+          lg: '976px',
+          xl: '1440px',
+        },
+        extend: {
+          fontFamily: {
+            sans: ['Josefin Sans', 'sans-serif'],
+            alata: ['Alata'],
+          },
+          letterSpacing: {
+            widest: '.3em',
+          },
+        },
+      },
+      plugins: [],
+    }
+  </script>
+</head>
+<body>
+<div class="w-screen bg-gradient-to-r from-blue-600 to-cyan-500">
+  <header class="header-content">
+    <!-- Hero Section -->
+    <section id="hero">
+      <!-- Hero Container -->
+      <div class="container max-w-6xl mx-auto px-6 py-12">
+        <!-- Menu/Logo Container -->
+        <nav class="flex items-center justify-between font-bold text-white">
+          <!-- Logo -->
+          <a href="./index.html"><span class="font-bold text-white text-4xl text-center hover:cursor-pointer">RRC Communication Center</span></a>
+          <!-- Menu -->
+          <div class="hidden h-10 font-alata md:flex md:space-x-8">
+            <div class="group">
+              <a href="./about/index.html">About</a>
+              <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+            </div>
+            <div class="group">
+              <a href="./resources/index.html">Resources</a>
+              <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+            </div>
+            <div class="group">
+              <a href="./documents/index.html">Documents</a>
+              <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+            </div>
+            <div class="group">
+              <a href="./support/index.html">Support</a>
+              <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
+            </div>
+          </div>
+          <!-- Hamburger Button -->
+          <div class="md:hidden">
+            <button
+                id="menu-btn"
+                type="button"
+                class="z-40 block hamburger md:hidden focus:outline-none">
+              <span class="hamburger-top"></span>
+              <span class="hamburger-middle"></span>
+              <span class="hamburger-bottom"></span>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="menu"
+             class="absolute top-0 bottom-0 left-0 hidden flex-col self-end w-full min-h-screen py-1 pt-40 pl-12 space-y-3 text-lg text-white uppercase bg-black">
+          <a href="./about/index.html" class="hover:text-pink-500">About</a>
+          <a href="./resources/index.html" class="hover:text-pink-500">Resources</a>
+          <a href="./documents/index.html" class="hover:text-pink-500">Documents</a>
+          <a href="./support/index.html" class="hover:text-pink-500">Support</a>
+        </div>
+
+        <div class="max-w-2xl mt-32 mb-32 p-4 font-sans text-4xl text-white uppercase border-2 md:p-10 md:m-32 md:mx-0 md:text-6xl">
+          Eleven Communication Strategies
+        </div>
+      </div>
+    </section>
+  </header>
+
+</div>
+<main>
+  <div>
+    <video autoplay loop muted playsinline class="w-full">
+      <source src="assets/video/background_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="w-screen h-[1000px] bg-gradient-to-br from-[#F0FF00]/30 to-[#58CFFB]/60">
+
+  </div>
+</main>
+<footer></footer>
+</body>
+</html>
