@@ -94,9 +94,15 @@ const hideErrors = () => {
   errorMsgIdList.forEach(msgId => document.getElementById(msgId).style.display = "none");
 }
 
+const handleFormReset = () => {
+  hideErrors();
+  ["username", "phone", "email", "comment"].forEach(inputId => document.getElementById(inputId).value = "");
+};
+
 const load = () => {
   const formElement = document.getElementById("contact_form");
   formElement.addEventListener("submit", handleFormSubmission);
+  formElement.addEventListener("reset", handleFormReset);
 }
 
 document.addEventListener('DOMContentLoaded', load);
