@@ -1,4 +1,6 @@
 const validateForm = (event) => {
+  hideErrors();
+
   // if the form has errors, then this flag will be true;
   let formErrorFlag = false;
 
