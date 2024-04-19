@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Support</title>
-  <meta charset="UTF-8">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../../formValidation.js"></script>
-  <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -39,7 +37,7 @@
     }
   </script>
 </head>
-<body class="">
+<body class="flex justify-between flex-col min-h-screen">
 <header class="header-content bg-green-800">
   <!-- Hero Section -->
   <section id="hero">
@@ -53,9 +51,7 @@
         <div class="hidden h-6 font-alata md:flex md:space-x-8">
           <div class="group">
             <a href="../about/index.html">About</a>
-            <div
-                class="mx-2 group-hover:border-b group-hover:border-blue-50"
-            ></div>
+            <div class="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
           </div>
           <div class="group">
             <a href="../comments/index.html">Comments</a>
@@ -112,7 +108,7 @@
       <div class="w-full px-6 my-3">
         <div class="w-full flex space-between">
           <p class="w-32 h-16 pt-3 text-gray-900 font-sans text-center font-bold text-lg">
-            Username:
+            <label for="username">Username:</label>
           </p>
           <div class="w-96 h-16">
             <input id="username" type="text" class="w-full p-3 border border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
@@ -124,7 +120,7 @@
       <div class="w-full px-6 my-3">
         <div class="w-full flex space-between">
           <p class="w-32 h-16 pt-3 text-gray-900 font-sans text-center font-bold text-lg">
-            Phone Number:
+            <label for="phone">Phone Number:</label>
           </p>
           <div class="w-96 h-16">
             <input id="phone" type="phone" class="w-full p-3 border border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
@@ -136,7 +132,7 @@
       <div class="w-full px-6 my-3">
         <div class="w-full flex space-between">
           <p class="w-32 h-16 pt-3 text-gray-900 font-sans text-center font-bold text-lg">
-            Email:
+            <label for="email">Email:</label>
           </p>
           <div class="w-96 h-16">
             <input id="email" type="email" class="w-full p-3 border border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
@@ -148,7 +144,7 @@
       <div class="w-full px-6 my-3">
         <div class="w-full flex space-between">
           <p class="w-32 h-16 pt-3 text-gray-900 font-sans text-center font-bold text-lg">
-            Comments:
+            <label for="comment">Comments:</label>
           </p>
           <div class="w-96 h-16">
             <input id="comment" type="text" class="w-full p-3 border border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
@@ -171,7 +167,7 @@
   </div>
 
 </main>
-<footer class="bg-black mt-16">
+<footer class="bg-black mt-32">
   <!-- Container -->
   <div class="container max-w-6xl py-10 mx-auto">
     <!-- Footer Flex Container -->
